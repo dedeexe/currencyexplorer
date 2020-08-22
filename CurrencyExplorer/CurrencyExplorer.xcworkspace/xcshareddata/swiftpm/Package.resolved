@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DDXNetwork",
+        "repositoryURL": "git@github.com:dedeexe/DDXNetwork.git",
+        "state": {
+          "branch": null,
+          "revision": "53eec7f933b3c609205a44fc514059c8500a1abf",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
