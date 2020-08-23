@@ -6,6 +6,16 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
+    init() {
+        super.init(frame: .zero)
+        self.backgroundColor = UIColor.white
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func setupViews() {
         
     }

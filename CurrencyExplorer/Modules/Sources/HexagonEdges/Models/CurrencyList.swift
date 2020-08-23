@@ -1,7 +1,6 @@
 import Foundation
 
 public struct CurrencyList: Decodable, Equatable {
-
     public var success: Bool?
     public var currencies: [String: String]?
 

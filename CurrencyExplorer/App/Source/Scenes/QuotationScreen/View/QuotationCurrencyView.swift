@@ -1,7 +1,6 @@
 import UIKit
 
 class QuotationCurrencyView: UIView {
-
     private let textField: UITextField = {
         let view = UITextField()
         view.keyboardType = .decimalPad
@@ -14,5 +13,4 @@ class QuotationCurrencyView: UIView {
     private func addComponents() {
         addSubview(textField)
     }
-
 }

@@ -3,7 +3,7 @@ import Foundation
 extension Fixture {
 
     struct Quotes {
-        static let data = CurrencyList.json.data(using: .utf8) ?? Data(capacity: 0)
+        static let data = Quotes.json.data(using: .utf8) ?? Data(capacity: 0)
         static let json = #"""
 
             {

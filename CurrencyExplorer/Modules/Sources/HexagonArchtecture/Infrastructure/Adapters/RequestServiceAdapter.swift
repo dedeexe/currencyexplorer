@@ -2,17 +2,17 @@ import DDXNetwork
 import Foundation
 import HexagonEdges
 
-public final class RequestServiceAdapter: RequestServicePort {
+final class RequestServiceAdapter: RequestServicePort {
 
     private let http: HttpService
     private var decoder: JSONDecoder
 
-    public init(decoder: JSONDecoder? = nil, http: HttpService = HttpWorker()) {
+    init(decoder: JSONDecoder? = nil, http: HttpService = HttpWorker()) {
         self.http = http
         self.decoder = RequestServiceAdapter.generateDecoder(from: decoder)
     }
 
-    public func requestData(from request: ServiceRequestEntity,
+    func requestData(from request: ServiceRequestEntity,
                      additionalHeaders: ServiceHeaders,
                      completion: ServiceCompletion?) {
 
@@ -21,7 +21,7 @@ public final class RequestServiceAdapter: RequestServicePort {
                      completion: completion)
     }
 
-    public func request<T: Decodable>(_ type: T.Type,
+    func request<T: Decodable>(_ type: T.Type,
                                       from request: ServiceRequestEntity,
                                       additionalHeaders: ServiceHeaders = [:],
                                       completion: DecodedCompletion<T>?) {

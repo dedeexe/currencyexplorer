@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Modules">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0BE0D8CB24F293720036F8F9"
+               BuildableName = "CurrencyExplorerTests.xctest"
+               BlueprintName = "CurrencyExplorerTests"
+               ReferencedContainer = "container:CurrencyExplorer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

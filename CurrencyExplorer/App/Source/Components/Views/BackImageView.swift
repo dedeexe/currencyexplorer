@@ -11,7 +11,7 @@ class BackImageView: UIView {
 
     var image: UIImage? = nil {
         didSet {
-            backImageView.image = image
+            backImageView.image = image ?? Asset.Image.placeholder.resource
         }
     }
 
