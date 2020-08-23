@@ -7,54 +7,6 @@ class RequestServiceAdapterTests: XCTestCase {
 
     var sut: RequestServiceAdapter!
 
-//    func testRequestEncodedSuccess() {
-//        let data = loginResponse().data(using: .utf8)!
-//        let request = MockRequest.create()
-//        let httpMock = HTTPServiceMock(data: data)
-//        let expextedAuth = Authentication(accessToken: "1234567890", refreshToken: "ABCDEFGHTJ")
-//        let expectation = XCTestExpectation()
-//
-//        sut = RequestServiceAdapter(decoder: nil, http: httpMock)
-//
-//        sut.request(Authentication.self, from: request, additionalHeaders: [:]) { result in
-//            switch result {
-//            case .success(let resultAuth):
-//                XCTAssertEqual(resultAuth, expextedAuth)
-//                expectation.fulfill()
-//
-//            default:
-//                XCTFail("Not foreseen situation")
-//            }
-//        }
-//
-//        wait(for: [expectation], timeout: 10.0)
-//    }
-
-    func testEncodedFailure() {
-//        let request = MockRequest.create()
-//        let error = NSError(domain: "unknown error", code: 12345, userInfo: nil)
-//        let httpMock = HTTPServiceMock(error: error)
-//        let expectation = XCTestExpectation()
-//
-//        sut = RequestServiceAdapter(decoder: nil, http: httpMock)
-//
-//        sut.request(Authentication.self, from: request, additionalHeaders: [:]) { result in
-//            switch result {
-//            case .failure(let resultError):
-//                let err = resultError as NSError
-//                XCTAssertEqual(err.code, 12345)
-//                XCTAssertEqual(err.domain, "unknown error")
-//                XCTAssertTrue(err.userInfo.isEmpty)
-//                expectation.fulfill()
-//
-//            default:
-//                XCTFail("Not foreseen situation")
-//            }
-//        }
-//
-//        wait(for: [expectation], timeout: 10.0)
-    }
-
     func testRequestDataSuccess() {
         let data = loginResponse().data(using: .utf8)!
         let request = MockRequest.create()

@@ -1,19 +1,20 @@
 import Foundation
 import HexagonEdges
 
-public class CurrencyServiceWorker: CurrencyService {
+class CurrencyServiceWorker: CurrencyService {
 
     private let requestService: RequestServicePort
     private let session: Session
 
-    public init(session: Session = SessionManager.shared,
+    init(session: Session = SessionManager.shared,
                 service: RequestServicePort = RequestServiceAdapter()) {
         self.requestService = service
         self.session = session
     }
 
-    public func getAll(completion: @escaping DecodedCompletion<CurrencyList>) {
-        let request = ServiceRequest(url: Config.baseURL + "/list?access_key=\(session.accessToken)",
+    func getAll(completion: @escaping DecodedCompletion<CurrencyList>) {
+        let urlPath = Config.baseURL + "/list?access_key=\(session.accessToken)"
+        let request = ServiceRequest(url: urlPath,
                                      method: .get,
                                      body: nil,
                                      headers: [:],
@@ -24,8 +25,9 @@ public class CurrencyServiceWorker: CurrencyService {
         }
     }
 
-    public func getQuotation(for currency: String, completion: @escaping DecodedCompletion<Quotation>) {
-        let request = ServiceRequest(url: Config.baseURL + "/live?access_key=\(session.accessToken)",
+    func getQuotation(for currency: String, completion: @escaping DecodedCompletion<Quotation>) {
+        let urlPath = Config.baseURL + "/live?access_key=\(session.accessToken)"
+        let request = ServiceRequest(url: urlPath,
                                      method: .get,
                                      body: nil,
                                      headers: [:],
