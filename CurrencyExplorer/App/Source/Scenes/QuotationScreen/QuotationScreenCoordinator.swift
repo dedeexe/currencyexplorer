@@ -1,12 +1,13 @@
 import UIKit
 
-class QuotationScreenCoordinator: Coordinator {
+final class QuotationScreenCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     private(set) var viewController: UIViewController?
 
     init() {}
 
     func start() {
-        viewController = QuotationScreenViewController()
+        let model = QuotationScreenModel()
+        viewController = QuotationScreenViewController(model: model)
     }
 }

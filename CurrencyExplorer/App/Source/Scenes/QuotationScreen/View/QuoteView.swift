@@ -3,11 +3,26 @@ import UIKit
 class QuoteView: UIView {
     private let nameLabel: UILabel = {
         let view = UILabel()
+        view.font = UIFont.boldSystemFont(ofSize: 30)
+        view.textAlignment = .left
+        view.textColor = UIColor.white
         return view
     }()
 
     private let valueLabel: UILabel = {
         let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 18)
+        view.textAlignment = .right
+        view.textColor = UIColor.white
+        return view
+    }()
+
+    private let stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        view.spacing = 8
         return view
     }()
 
@@ -21,7 +36,7 @@ class QuoteView: UIView {
 
     var value: String? {
         didSet {
-            valueLabel.text = currency
+            valueLabel.text = value
         }
     }
 
@@ -38,13 +53,20 @@ class QuoteView: UIView {
 
     private func addComponents() {
         addSubview(backImage)
-        addSubview(nameLabel)
-        addSubview(valueLabel)
+        addSubview(stackView)
+        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(valueLabel)
     }
 
     private func setupLayout() {
         backImage.alignEdgesTo(view: self)
-        backImage.image = nil
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
+        ])
     }
 }
 

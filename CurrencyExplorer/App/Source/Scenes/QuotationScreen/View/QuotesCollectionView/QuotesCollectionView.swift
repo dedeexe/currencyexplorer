@@ -2,9 +2,7 @@ import UIKit
 import HexagonEdges
 
 class QuotesCollectionView: UIView {
-    typealias CreateCellEvent = (QuoteCell, Quote, IndexPath) -> QuoteCell?
-
-    var quotes: [Quote] = [] {
+    var quotes: [QuoteInfo] = [] {
         didSet {
             collectionHandler.quotes = quotes
         }

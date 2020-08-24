@@ -17,7 +17,7 @@ class CurrencyServiceWorkerTests: XCTestCase {
 
             switch result {
             case .success(let currencyList):
-                let currencies = currencyList.mappedCurrencies.sorted { $0.symbol ?? "" < $1.symbol ?? "" }
+                let currencies = currencyList.mappedCurrencies.sorted { $0.symbol < $1.symbol}
                 XCTAssertEqual(4, currencies.count)
                 XCTAssertEqual(currencies[0].symbol, "BRL")
                 XCTAssertEqual(currencies[1].symbol, "BSD")
@@ -64,7 +64,7 @@ class CurrencyServiceWorkerTests: XCTestCase {
         sut = CurrencyServiceWorker(service: service)
         let expectation = XCTestExpectation()
 
-        sut.getQuotation(for: "***") { result in
+        sut.getQuotations { result in
 
             switch result {
             case .success(let quotation):
@@ -94,7 +94,7 @@ class CurrencyServiceWorkerTests: XCTestCase {
         sut = CurrencyServiceWorker(service: service)
         let expectation = XCTestExpectation()
 
-        sut.getQuotation(for: "USB") { result in
+        sut.getQuotations { result in
 
             switch result {
             case .success:

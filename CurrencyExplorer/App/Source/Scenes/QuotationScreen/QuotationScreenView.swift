@@ -2,7 +2,6 @@ import UIKit
 import HexagonEdges
 
 final class QuotationScreenView: UIView {
-
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +18,12 @@ final class QuotationScreenView: UIView {
     }()
 
     private let collectionView = QuotesCollectionView()
+
+    var quotes: [QuoteInfo] = [] {
+        didSet {
+            collectionView.quotes = quotes
+        }
+    }
 
     init() {
         super.init(frame: .zero)
@@ -46,19 +51,5 @@ final class QuotationScreenView: UIView {
         stackView.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -8).isActive = true
 
         currencyView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-
-        collectionView.quotes = [
-            Quote(currency: "ASDF", value: 1234),
-            Quote(currency: "hj", value: 1234),
-            Quote(currency: "ASghjkDF", value: 1234),
-            Quote(currency: "ASghjkDF", value: 1234),
-            Quote(currency: "6789", value: 1234),
-            Quote(currency: "ghjk", value: 1234),
-            Quote(currency: "ghk", value: 1234),
-            Quote(currency: "bkg", value: 1234),
-            Quote(currency: "ghk", value: 1234),
-            Quote(currency: "ghkg", value: 1234)
-        ]
     }
-    
 }

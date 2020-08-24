@@ -7,10 +7,10 @@ class QuoteCell: UICollectionViewCell {
 
     private let quoteView = QuoteView()
 
-    var quote: Quote? {
+    var quote: QuoteInfo? {
         didSet {
-            quoteView.currency = quote?.currency
-            quoteView.value = String(quote?.value ?? 0.0)
+            quoteView.currency = quote?.symbol
+            quoteView.value = String(quote?.value ?? "")
         }
     }
 

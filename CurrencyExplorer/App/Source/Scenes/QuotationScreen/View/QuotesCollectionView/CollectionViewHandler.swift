@@ -5,7 +5,7 @@ class CollectionViewHandler: NSObject, UICollectionViewDataSource, UICollectionV
     private unowned let collectionView: UICollectionView
     private let spacing = CGFloat(8.0)
 
-    var quotes: [Quote] = [] {
+    var quotes: [QuoteInfo] = [] {
         didSet {
             reload()
         }
@@ -53,7 +53,7 @@ class CollectionViewHandler: NSObject, UICollectionViewDataSource, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = max(collectionView.bounds.width / 2 - spacing, 0)
-        let height = width * 0.60
+        let height = width * 0.55
         return CGSize(width: width, height: height)
     }
 

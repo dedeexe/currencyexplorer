@@ -25,7 +25,7 @@ class CurrencyServiceWorker: CurrencyService {
         }
     }
 
-    func getQuotation(for currency: String, completion: @escaping DecodedCompletion<Quotation>) {
+    func getQuotations(completion: @escaping DecodedCompletion<Quotation>) {
         let urlPath = Config.baseURL + "/live?access_key=\(session.accessToken)"
         let request = ServiceRequest(url: urlPath,
                                      method: .get,

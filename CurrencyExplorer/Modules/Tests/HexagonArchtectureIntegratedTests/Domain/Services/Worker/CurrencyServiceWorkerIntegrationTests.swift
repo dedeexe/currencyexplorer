@@ -47,7 +47,7 @@ class CurrencyServiceWorkerIntegrationTests: XCTestCase {
 
         let expectation = XCTestExpectation()
 
-        sut.getQuotation(for: "USD") { result in
+        sut.getQuotations { result in
 
             switch result {
             case .success(let quotation):
