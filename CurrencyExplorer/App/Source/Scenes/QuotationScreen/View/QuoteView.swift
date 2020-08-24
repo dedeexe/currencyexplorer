@@ -1,34 +1,57 @@
 import UIKit
 
 class QuoteView: UIView {
-    private let nameLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 30)
+        view.font = UIFont.boldSystemFont(ofSize: 14)
         view.textAlignment = .left
-        view.textColor = Style.Color.primary.token
+        view.textColor = Style.Color.secondary.token
         return view
+    }()
+
+    private let descriptionLabel: UILabel = {
+       let view = UILabel()
+       view.font = UIFont.systemFont(ofSize: 14)
+       view.textAlignment = .right
+        view.textColor = UIColor.lightGray
+       return view
     }()
 
     private let valueLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 18)
+        view.font = UIFont.systemFont(ofSize: 20)
         view.textAlignment = .right
-        view.textColor = Style.Color.primary.token
+        view.textColor = Style.Color.secondary.token
         return view
     }()
 
-    private let stackView: UIStackView = {
+    private let mainStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.spacing = 8
+        return view
+    }()
+
+    private let infoStackVIew: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
-        view.distribution = .fillEqually
+        view.distribution = .fill
         view.spacing = 8
         return view
     }()
 
     var currency: String? {
         didSet {
-            nameLabel.text = currency
+            titleLabel.text = currency
+        }
+    }
+
+    var descriptionText: String? {
+        didSet {
+            descriptionLabel.text = descriptionText
         }
     }
 
@@ -50,22 +73,22 @@ class QuoteView: UIView {
     }
 
     private func addComponents() {
-        addSubview(stackView)
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(valueLabel)
+        addSubview(mainStackView)
+        mainStackView.addArrangedSubview(infoStackVIew)
+        mainStackView.addArrangedSubview(valueLabel)
+        infoStackVIew.addArrangedSubview(titleLabel)
+        infoStackVIew.addArrangedSubview(descriptionLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-            stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
+            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            mainStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            mainStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20)
         ])
 
-        layer.cornerRadius = 16
-        layer.masksToBounds = true
-        backgroundColor = Style.Color.secondary.token
+        backgroundColor = Style.Color.primary.token
     }
 }
 

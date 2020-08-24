@@ -1,7 +1,7 @@
 import UIKit
 import HexagonEdges
 
-class QuotesCollectionView: UIView {
+class QuotesListView: UIView {
     var quotes: [QuoteInfo] = [] {
         didSet {
             collectionHandler.quotes = quotes

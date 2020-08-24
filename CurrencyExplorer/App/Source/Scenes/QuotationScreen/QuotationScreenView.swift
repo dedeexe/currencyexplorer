@@ -9,35 +9,21 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
-    private let headerView: QuotationHeaderView = {
-        let view = QuotationHeaderView()
+    private let headerLabel: UILabel = {
+        let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Quotations"
+        view.textAlignment = .center
+        view.font = Style.Font.secondary.token
+        view.textColor = Style.Color.secondary.token
         return view
     }()
 
-    private let collectionView: QuotesCollectionView = {
-        let view = QuotesCollectionView()
+    private let collectionView: QuotesListView = {
+        let view = QuotesListView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-    var descriptionText: String? {
-        didSet {
-            headerView.descriptionText = descriptionText
-        }
-    }
-
-    var currencyText: String? {
-        didSet {
-            headerView.complement = currencyText
-        }
-    }
-
-    var quotes: [QuoteInfo] = [] {
-        didSet {
-            collectionView.quotes = quotes
-        }
-    }
 
     init() {
         super.init(frame: .zero)
@@ -52,7 +38,7 @@ final class QuotationScreenView: UIView {
     }
 
     private func addComponents() {
-        topView.addSubview(headerView)
+        topView.addSubview(headerLabel)
         addSubview(topView)
         addSubview(collectionView)
     }
@@ -67,10 +53,10 @@ final class QuotationScreenView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: topView.safeAreaLayoutGuide.topAnchor, constant: 40),
-            headerView.leftAnchor.constraint(equalTo: topView.leftAnchor),
-            headerView.rightAnchor.constraint(equalTo: topView.rightAnchor),
-            headerView.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -20)
+            headerLabel.topAnchor.constraint(equalTo: topView.safeAreaLayoutGuide.topAnchor, constant: 20),
+            headerLabel.leftAnchor.constraint(equalTo: topView.leftAnchor),
+            headerLabel.rightAnchor.constraint(equalTo: topView.rightAnchor),
+            headerLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -20)
         ])
 
         NSLayoutConstraint.activate([

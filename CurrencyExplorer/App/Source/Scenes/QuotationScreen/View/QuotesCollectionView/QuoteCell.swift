@@ -1,9 +1,8 @@
 import UIKit
-import HexagonEdges
 
-class QuoteCell: UICollectionViewCell {
+class QuoteCell: UITableViewCell {
 
-    static let identifier = "quiteCell"
+    static let identifier = "quoteCell"
 
     private let quoteView = QuoteView()
 
@@ -11,11 +10,13 @@ class QuoteCell: UICollectionViewCell {
         didSet {
             quoteView.currency = quote?.symbol
             quoteView.value = String(quote?.value ?? "")
+            quoteView.descriptionText = quote?.country
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         setupLayout()
     }
 
@@ -27,6 +28,7 @@ class QuoteCell: UICollectionViewCell {
     func setupLayout() {
         contentView.addSubview(quoteView)
         quoteView.alignEdgesTo(view: contentView)
+        contentView.backgroundColor = Style.Color.primary.token
     }
 
 }

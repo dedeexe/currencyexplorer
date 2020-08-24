@@ -22,7 +22,7 @@ extension Style {
             case .inputText:
                 return UIFont.boldSystemFont(ofSize: 45)
             default:
-                return UIFont.systemFont(ofSize: 30)
+                return UIFont.systemFont(ofSize: 20)
             }
         }
     }

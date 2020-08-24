@@ -18,8 +18,8 @@
 		0BC64ABE24F340B70027DA0F /* QuotationScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC64ABD24F340B70027DA0F /* QuotationScreenModel.swift */; };
 		0BD0FBDF24F2E5E000A4EC11 /* UIView+Contraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBDE24F2E5E000A4EC11 /* UIView+Contraints.swift */; };
 		0BD0FBE124F2F5D200A4EC11 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBE024F2F5D200A4EC11 /* QuoteView.swift */; };
-		0BD0FBE424F301A300A4EC11 /* CollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBE324F301A300A4EC11 /* CollectionViewHandler.swift */; };
-		0BD0FBE724F3106C00A4EC11 /* QuotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBE624F3106C00A4EC11 /* QuotesCollectionView.swift */; };
+		0BD0FBE424F301A300A4EC11 /* TableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBE324F301A300A4EC11 /* TableViewHandler.swift */; };
+		0BD0FBE724F3106C00A4EC11 /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBE624F3106C00A4EC11 /* QuotesListView.swift */; };
 		0BD0FBEA24F314CE00A4EC11 /* HexagonalArchtecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0BD0FBE924F314CE00A4EC11 /* HexagonalArchtecture */; };
 		0BE0D8B224F1EA410036F8F9 /* QuotationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8B124F1EA410036F8F9 /* QuotationScreenViewController.swift */; };
 		0BE0D8B824F1EAA80036F8F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8B724F1EAA80036F8F9 /* BaseViewController.swift */; };
@@ -56,8 +56,8 @@
 		0BC64ABD24F340B70027DA0F /* QuotationScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenModel.swift; sourceTree = "<group>"; };
 		0BD0FBDE24F2E5E000A4EC11 /* UIView+Contraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Contraints.swift"; sourceTree = "<group>"; };
 		0BD0FBE024F2F5D200A4EC11 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
-		0BD0FBE324F301A300A4EC11 /* CollectionViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHandler.swift; sourceTree = "<group>"; };
-		0BD0FBE624F3106C00A4EC11 /* QuotesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCollectionView.swift; sourceTree = "<group>"; };
+		0BD0FBE324F301A300A4EC11 /* TableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHandler.swift; sourceTree = "<group>"; };
+		0BD0FBE624F3106C00A4EC11 /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 		0BE0D8B124F1EA410036F8F9 /* QuotationScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenViewController.swift; sourceTree = "<group>"; };
 		0BE0D8B724F1EAA80036F8F9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0BE0D8BA24F1EE2A0036F8F9 /* QuotationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenView.swift; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 		0BD0FBE824F310F700A4EC11 /* QuotesCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				0BD0FBE324F301A300A4EC11 /* CollectionViewHandler.swift */,
-				0BD0FBE624F3106C00A4EC11 /* QuotesCollectionView.swift */,
+				0BD0FBE324F301A300A4EC11 /* TableViewHandler.swift */,
+				0BD0FBE624F3106C00A4EC11 /* QuotesListView.swift */,
 				0BC2E26B24F3225800734863 /* QuoteCell.swift */,
 			);
 			path = QuotesCollectionView;
@@ -399,7 +399,7 @@
 				0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */,
 				0BE0D8BD24F1F01D0036F8F9 /* QuotationHeaderView.swift in Sources */,
 				0BE0D8B824F1EAA80036F8F9 /* BaseViewController.swift in Sources */,
-				0BD0FBE424F301A300A4EC11 /* CollectionViewHandler.swift in Sources */,
+				0BD0FBE424F301A300A4EC11 /* TableViewHandler.swift in Sources */,
 				0BE0D8E424F29BC80036F8F9 /* QuotationScreenCoordinator.swift in Sources */,
 				0BC2E26C24F3225800734863 /* QuoteCell.swift in Sources */,
 				0BD0FBDF24F2E5E000A4EC11 /* UIView+Contraints.swift in Sources */,
@@ -412,7 +412,7 @@
 				0B35F73F24F099D30031E7FD /* AppDelegate.swift in Sources */,
 				0BA1E66424F3D56400960AED /* Style.swift in Sources */,
 				0BFD2F4424F42D43001F1C36 /* CurrencyTextField.swift in Sources */,
-				0BD0FBE724F3106C00A4EC11 /* QuotesCollectionView.swift in Sources */,
+				0BD0FBE724F3106C00A4EC11 /* QuotesListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
