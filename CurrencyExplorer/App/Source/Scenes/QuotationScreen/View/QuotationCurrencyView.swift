@@ -1,6 +1,13 @@
 import UIKit
 
-class QuotationCurrencyView: UIView {
+class QuotationHeaderView: UIView {
+    private let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
+        return view
+    }()
+
     private let textField: UITextField = {
         let view = UITextField()
         view.keyboardType = .decimalPad
@@ -10,14 +17,8 @@ class QuotationCurrencyView: UIView {
         return view
     }()
 
-    private let backView: BackgroundView = {
-        let view = BackgroundView(style: .primary)
-        return view
-    }()
-
     init() {
         super.init(frame: .zero)
-        addComponents()
         setupLayout()
     }
 
@@ -26,11 +27,7 @@ class QuotationCurrencyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func addComponents() {
-        addSubview(backView)
-    }
-
     private func setupLayout() {
-        backView.alignEdgesTo(view: self)
+        backgroundColor = Style.Color.primary.token
     }
 }

@@ -26,8 +26,6 @@ class QuoteView: UIView {
         return view
     }()
 
-    private let backImage = BackgroundView(style: .secondary)
-
     var currency: String? {
         didSet {
             nameLabel.text = currency
@@ -52,15 +50,12 @@ class QuoteView: UIView {
     }
 
     private func addComponents() {
-        addSubview(backImage)
         addSubview(stackView)
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(valueLabel)
     }
 
     private func setupLayout() {
-        backImage.alignEdgesTo(view: self)
-
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
@@ -70,6 +65,7 @@ class QuoteView: UIView {
 
         layer.cornerRadius = 16
         layer.masksToBounds = true
+        backgroundColor = Style.Color.secondary.token
     }
 }
 

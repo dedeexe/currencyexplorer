@@ -35,5 +35,6 @@ class QuotesCollectionView: UIView {
     private func setupLayout() {
         addSubview(collectionView)
         collectionView.alignEdgesTo(view: self)
+        collectionView.backgroundColor = Style.Color.primary.token
     }
 }

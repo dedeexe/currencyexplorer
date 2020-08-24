@@ -13,6 +13,7 @@
 		0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66124F3648400960AED /* QuoteInfo.swift */; };
 		0BA1E66424F3D56400960AED /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66324F3D56400960AED /* Style.swift */; };
 		0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */; };
+		0BA1E66D24F40C2900960AED /* CircleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66C24F40C2900960AED /* CircleLabel.swift */; };
 		0BC2E26C24F3225800734863 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC2E26B24F3225800734863 /* QuoteCell.swift */; };
 		0BC64ABE24F340B70027DA0F /* QuotationScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC64ABD24F340B70027DA0F /* QuotationScreenModel.swift */; };
 		0BD0FBDF24F2E5E000A4EC11 /* UIView+Contraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD0FBDE24F2E5E000A4EC11 /* UIView+Contraints.swift */; };
@@ -23,12 +24,12 @@
 		0BE0D8B224F1EA410036F8F9 /* QuotationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8B124F1EA410036F8F9 /* QuotationScreenViewController.swift */; };
 		0BE0D8B824F1EAA80036F8F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8B724F1EAA80036F8F9 /* BaseViewController.swift */; };
 		0BE0D8BB24F1EE2A0036F8F9 /* QuotationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BA24F1EE2A0036F8F9 /* QuotationScreenView.swift */; };
-		0BE0D8BD24F1F01D0036F8F9 /* QuotationCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BC24F1F01D0036F8F9 /* QuotationCurrencyView.swift */; };
-		0BE0D8C024F2833F0036F8F9 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BF24F2833F0036F8F9 /* BackgroundView.swift */; };
+		0BE0D8BD24F1F01D0036F8F9 /* QuotationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BC24F1F01D0036F8F9 /* QuotationHeaderView.swift */; };
 		0BE0D8DB24F295FD0036F8F9 /* Asset+ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8DA24F295FD0036F8F9 /* Asset+ImageTests.swift */; };
 		0BE0D8E024F2999F0036F8F9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8DF24F2999F0036F8F9 /* Coordinator.swift */; };
 		0BE0D8E224F29ABC0036F8F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8E124F29ABC0036F8F9 /* AppCoordinator.swift */; };
 		0BE0D8E424F29BC80036F8F9 /* QuotationScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8E324F29BC80036F8F9 /* QuotationScreenCoordinator.swift */; };
+		0BFD2F4424F42D43001F1C36 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFD2F4324F42D43001F1C36 /* CurrencyTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		0BA1E66124F3648400960AED /* QuoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInfo.swift; sourceTree = "<group>"; };
 		0BA1E66324F3D56400960AED /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		0BA1E66C24F40C2900960AED /* CircleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLabel.swift; sourceTree = "<group>"; };
 		0BC2E26B24F3225800734863 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		0BC64ABD24F340B70027DA0F /* QuotationScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenModel.swift; sourceTree = "<group>"; };
 		0BD0FBDE24F2E5E000A4EC11 /* UIView+Contraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Contraints.swift"; sourceTree = "<group>"; };
@@ -59,14 +61,14 @@
 		0BE0D8B124F1EA410036F8F9 /* QuotationScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenViewController.swift; sourceTree = "<group>"; };
 		0BE0D8B724F1EAA80036F8F9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0BE0D8BA24F1EE2A0036F8F9 /* QuotationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenView.swift; sourceTree = "<group>"; };
-		0BE0D8BC24F1F01D0036F8F9 /* QuotationCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationCurrencyView.swift; sourceTree = "<group>"; };
-		0BE0D8BF24F2833F0036F8F9 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0BE0D8BC24F1F01D0036F8F9 /* QuotationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationHeaderView.swift; sourceTree = "<group>"; };
 		0BE0D8CC24F293720036F8F9 /* CurrencyExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE0D8D024F293720036F8F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE0D8DA24F295FD0036F8F9 /* Asset+ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+ImageTests.swift"; sourceTree = "<group>"; };
 		0BE0D8DF24F2999F0036F8F9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0BE0D8E124F29ABC0036F8F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0BE0D8E324F29BC80036F8F9 /* QuotationScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenCoordinator.swift; sourceTree = "<group>"; };
+		0BFD2F4324F42D43001F1C36 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		0BA1E66B24F40BC200960AED /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				0BA1E66C24F40C2900960AED /* CircleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		0BD0FBDA24F2E23200A4EC11 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +198,8 @@
 		0BE0D8B324F1EA630036F8F9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0BE0D8BE24F282F50036F8F9 /* Views */,
+				0BFD2F4224F42D27001F1C36 /* TextField */,
+				0BA1E66B24F40BC200960AED /* Labels */,
 				0BE0D8B624F1EA890036F8F9 /* ViewController */,
 			);
 			path = Components;
@@ -206,18 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				0BD0FBE824F310F700A4EC11 /* QuotesCollectionView */,
-				0BE0D8BC24F1F01D0036F8F9 /* QuotationCurrencyView.swift */,
+				0BE0D8BC24F1F01D0036F8F9 /* QuotationHeaderView.swift */,
 				0BD0FBE024F2F5D200A4EC11 /* QuoteView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0BE0D8BE24F282F50036F8F9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0BE0D8BF24F2833F0036F8F9 /* BackgroundView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		0BE0D8C424F28E7D0036F8F9 /* Common */ = {
@@ -277,6 +280,14 @@
 				0BE0D8DF24F2999F0036F8F9 /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0BFD2F4224F42D27001F1C36 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				0BFD2F4324F42D43001F1C36 /* CurrencyTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,15 +395,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BE0D8E224F29ABC0036F8F9 /* AppCoordinator.swift in Sources */,
-				0BE0D8C024F2833F0036F8F9 /* BackgroundView.swift in Sources */,
 				0BE0D8E024F2999F0036F8F9 /* Coordinator.swift in Sources */,
 				0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */,
-				0BE0D8BD24F1F01D0036F8F9 /* QuotationCurrencyView.swift in Sources */,
+				0BE0D8BD24F1F01D0036F8F9 /* QuotationHeaderView.swift in Sources */,
 				0BE0D8B824F1EAA80036F8F9 /* BaseViewController.swift in Sources */,
 				0BD0FBE424F301A300A4EC11 /* CollectionViewHandler.swift in Sources */,
 				0BE0D8E424F29BC80036F8F9 /* QuotationScreenCoordinator.swift in Sources */,
 				0BC2E26C24F3225800734863 /* QuoteCell.swift in Sources */,
 				0BD0FBDF24F2E5E000A4EC11 /* UIView+Contraints.swift in Sources */,
+				0BA1E66D24F40C2900960AED /* CircleLabel.swift in Sources */,
 				0BD0FBE124F2F5D200A4EC11 /* QuoteView.swift in Sources */,
 				0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */,
 				0BE0D8BB24F1EE2A0036F8F9 /* QuotationScreenView.swift in Sources */,
@@ -400,6 +411,7 @@
 				0BC64ABE24F340B70027DA0F /* QuotationScreenModel.swift in Sources */,
 				0B35F73F24F099D30031E7FD /* AppDelegate.swift in Sources */,
 				0BA1E66424F3D56400960AED /* Style.swift in Sources */,
+				0BFD2F4424F42D43001F1C36 /* CurrencyTextField.swift in Sources */,
 				0BD0FBE724F3106C00A4EC11 /* QuotesCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SD6HQTT68J;
 				INFOPLIST_FILE = App/Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SD6HQTT68J;
 				INFOPLIST_FILE = App/Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
