@@ -1,14 +1,30 @@
 import UIKit
+import HexagonEdges
 
 final class QuotationScreenView: UIView {
-    private let collection: UICollectionView = {
-        let view = UICollectionView()
+
+    private let stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.distribution = .fill
+        view.axis = .vertical
+        view.spacing = 8
         return view
     }()
+
+    private let currencyView: QuotationCurrencyView = {
+        let view = QuotationCurrencyView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let collectionView = QuotesCollectionView()
 
     init() {
         super.init(frame: .zero)
         self.backgroundColor = UIColor.white
+        addComponents()
+        setupLayout()
     }
 
     @available(*, unavailable)
@@ -16,7 +32,33 @@ final class QuotationScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupViews() {
-        
+    private func addComponents() {
+        addSubview(stackView)
+        stackView.addArrangedSubview(currencyView)
+        stackView.addArrangedSubview(collectionView)
     }
+
+    private func setupLayout() {
+        let margins = self.safeAreaLayoutGuide
+        stackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        stackView.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 8).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+        stackView.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -8).isActive = true
+
+        currencyView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+
+        collectionView.quotes = [
+            Quote(currency: "ASDF", value: 1234),
+            Quote(currency: "hj", value: 1234),
+            Quote(currency: "ASghjkDF", value: 1234),
+            Quote(currency: "ASghjkDF", value: 1234),
+            Quote(currency: "6789", value: 1234),
+            Quote(currency: "ghjk", value: 1234),
+            Quote(currency: "ghk", value: 1234),
+            Quote(currency: "bkg", value: 1234),
+            Quote(currency: "ghk", value: 1234),
+            Quote(currency: "ghkg", value: 1234)
+        ]
+    }
+    
 }

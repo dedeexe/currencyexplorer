@@ -5,7 +5,7 @@ class BackImageView: UIView {
     private let backImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
         return view
     }()
 
@@ -31,9 +31,9 @@ class BackImageView: UIView {
     }
 
     private func setupLayout() {
-        backImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        backImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        backImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        backImageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        backImageView.alignEdgesTo(view: self)
+        layer.cornerRadius = 16
+        layer.masksToBounds = true
+        image = nil
     }
 }

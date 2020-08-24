@@ -1,4 +1,4 @@
 public struct Currency: Decodable, Equatable {
-    public var symbol: String?
-    public var description: String?
+    public let symbol: String
+    public let description: String
 }

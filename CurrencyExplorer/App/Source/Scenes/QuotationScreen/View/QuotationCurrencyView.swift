@@ -10,7 +10,31 @@ class QuotationCurrencyView: UIView {
         return view
     }()
 
+    private let backView: BackImageView = {
+        let view = BackImageView()
+        view.image = nil
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 16
+        view.layer.masksToBounds = true
+        return view
+    }()
+
+    init() {
+        super.init(frame: .zero)
+        addComponents()
+        setupLayout()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func addComponents() {
-        addSubview(textField)
+        addSubview(backView)
+    }
+
+    private func setupLayout() {
+        backView.alignEdgesTo(view: self)
     }
 }
