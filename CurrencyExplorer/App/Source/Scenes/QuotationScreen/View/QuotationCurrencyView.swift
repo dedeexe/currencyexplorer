@@ -11,7 +11,7 @@ class QuotationCurrencyView: UIView {
     }()
 
     private let backView: BackgroundView = {
-        let view = BackgroundView(style: .currencyInput)
+        let view = BackgroundView(style: .primary)
         return view
     }()
 

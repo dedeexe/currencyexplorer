@@ -3,8 +3,8 @@ import UIKit
 final class BackgroundView: UIView {
 
     enum Style {
-        case currencyCell
-        case currencyInput
+        case primary
+        case secondary
     }
 
     private let style: Style
@@ -40,22 +40,18 @@ final class BackgroundView: UIView {
 
     private func setupLayout() {
         backView.alignEdgesTo(view: self)
-        layer.cornerRadius = style.radius
-        layer.masksToBounds = style.maskedToBounds
+        backView.backgroundColor = style.color
     }
 }
 
 private extension BackgroundView.Style {
-    var radius: CGFloat {
+    var color: UIColor? {
         switch self {
-        case .currencyCell:
-            return 8.0
-        case .currencyInput:
-            return 0.0
+        case .secondary:
+            return Style.Color.secondary.token
+        default:
+            return Style.Color.primary.token
         }
     }
-
-    var maskedToBounds: Bool {
-        return self == .currencyCell
-    }
 }
+

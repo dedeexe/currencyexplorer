@@ -5,7 +5,7 @@ class QuoteView: UIView {
         let view = UILabel()
         view.font = UIFont.boldSystemFont(ofSize: 30)
         view.textAlignment = .left
-        view.textColor = UIColor.white
+        view.textColor = Style.Color.primary.token
         return view
     }()
 
@@ -13,7 +13,7 @@ class QuoteView: UIView {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 18)
         view.textAlignment = .right
-        view.textColor = UIColor.white
+        view.textColor = Style.Color.primary.token
         return view
     }()
 
@@ -26,7 +26,7 @@ class QuoteView: UIView {
         return view
     }()
 
-    private let backImage = BackgroundView(style: .currencyCell)
+    private let backImage = BackgroundView(style: .secondary)
 
     var currency: String? {
         didSet {
@@ -67,6 +67,9 @@ class QuoteView: UIView {
             stackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
         ])
+
+        layer.cornerRadius = 16
+        layer.masksToBounds = true
     }
 }
 
