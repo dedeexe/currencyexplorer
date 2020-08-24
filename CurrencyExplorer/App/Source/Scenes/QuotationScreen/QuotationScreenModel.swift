@@ -9,7 +9,7 @@ final class QuotationScreenModel {
 
     init() {}
 
-    func getQuotations() {        
+    func getQuotations() {
         service.getQuotations { result in
             switch result {
             case .success(let quotations):

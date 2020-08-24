@@ -10,12 +10,8 @@ class QuotationCurrencyView: UIView {
         return view
     }()
 
-    private let backView: BackImageView = {
-        let view = BackImageView()
-        view.image = nil
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 16
-        view.layer.masksToBounds = true
+    private let backView: BackgroundView = {
+        let view = BackgroundView(style: .currencyInput)
         return view
     }()
 

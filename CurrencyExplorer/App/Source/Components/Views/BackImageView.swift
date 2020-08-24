@@ -1,6 +1,6 @@
 import UIKit
 
-class BackImageView: UIView {
+class BackgroundView: UIView {
 
     private let backImageView: UIImageView = {
         let view = UIImageView()

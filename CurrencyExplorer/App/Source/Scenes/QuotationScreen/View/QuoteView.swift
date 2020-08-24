@@ -26,7 +26,7 @@ class QuoteView: UIView {
         return view
     }()
 
-    private let backImage = BackImageView()
+    private let backImage = BackgroundView(style: .currencyCell)
 
     var currency: String? {
         didSet {
