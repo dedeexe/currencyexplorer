@@ -1,5 +1,4 @@
 import UIKit
-import HexagonEdges
 
 final class QuotationScreenView: UIView {
 
@@ -19,17 +18,38 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
-    private let collectionView: QuotesListView = {
+    private let listView: QuotesListView = {
         let view = QuotesListView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
+    var descriptionText: String? {
+        didSet {
+            //headerView.descriptionText = descriptionText
+        }
+    }
+
+    var currencyText: String? {
+        didSet {
+            //headerView.complement = currencyText
+        }
+    }
+
+    var quotes: [QuoteInfo] = [] {
+        didSet {
+            listView.quotes = quotes
+        }
+    }
+
+    var onSelectQuote: ((QuoteInfo) -> Void)?
 
     init() {
         super.init(frame: .zero)
         self.backgroundColor = UIColor.white
         addComponents()
         setupLayout()
+        bindControls()
     }
 
     @available(*, unavailable)
@@ -40,7 +60,7 @@ final class QuotationScreenView: UIView {
     private func addComponents() {
         topView.addSubview(headerLabel)
         addSubview(topView)
-        addSubview(collectionView)
+        addSubview(listView)
     }
 
     private func setupLayout() {
@@ -60,10 +80,16 @@ final class QuotationScreenView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 0),
-            collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+            listView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 0),
+            listView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+            listView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            listView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
         ])
+    }
+
+    func bindControls() {
+        listView.onSelectItem = { quote, _ in
+            self.onSelectQuote?(quote)
+        }
     }
 }

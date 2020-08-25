@@ -25,7 +25,6 @@
 		0BE0D8B824F1EAA80036F8F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8B724F1EAA80036F8F9 /* BaseViewController.swift */; };
 		0BE0D8BB24F1EE2A0036F8F9 /* QuotationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BA24F1EE2A0036F8F9 /* QuotationScreenView.swift */; };
 		0BE0D8BD24F1F01D0036F8F9 /* QuotationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8BC24F1F01D0036F8F9 /* QuotationHeaderView.swift */; };
-		0BE0D8DB24F295FD0036F8F9 /* Asset+ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8DA24F295FD0036F8F9 /* Asset+ImageTests.swift */; };
 		0BE0D8E024F2999F0036F8F9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8DF24F2999F0036F8F9 /* Coordinator.swift */; };
 		0BE0D8E224F29ABC0036F8F9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8E124F29ABC0036F8F9 /* AppCoordinator.swift */; };
 		0BE0D8E424F29BC80036F8F9 /* QuotationScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0D8E324F29BC80036F8F9 /* QuotationScreenCoordinator.swift */; };
@@ -64,7 +63,6 @@
 		0BE0D8BC24F1F01D0036F8F9 /* QuotationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationHeaderView.swift; sourceTree = "<group>"; };
 		0BE0D8CC24F293720036F8F9 /* CurrencyExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE0D8D024F293720036F8F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BE0D8DA24F295FD0036F8F9 /* Asset+ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+ImageTests.swift"; sourceTree = "<group>"; };
 		0BE0D8DF24F2999F0036F8F9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0BE0D8E124F29ABC0036F8F9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0BE0D8E324F29BC80036F8F9 /* QuotationScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenCoordinator.swift; sourceTree = "<group>"; };
@@ -252,17 +250,8 @@
 		0BE0D8D624F294660036F8F9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0BE0D8D724F2946D0036F8F9 /* Asset */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0BE0D8D724F2946D0036F8F9 /* Asset */ = {
-			isa = PBXGroup;
-			children = (
-				0BE0D8DA24F295FD0036F8F9 /* Asset+ImageTests.swift */,
-			);
-			path = Asset;
 			sourceTree = "<group>";
 		};
 		0BE0D8DC24F2996E0036F8F9 /* AppMain */ = {
@@ -420,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BE0D8DB24F295FD0036F8F9 /* Asset+ImageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

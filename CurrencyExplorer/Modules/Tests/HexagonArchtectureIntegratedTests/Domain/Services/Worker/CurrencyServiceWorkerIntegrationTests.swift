@@ -18,7 +18,7 @@ class CurrencyServiceWorkerIntegrationTests: XCTestCase {
 
         let expectation = XCTestExpectation()
 
-        sut.getAll { result in
+        sut.getSymbols { result in
 
             switch result {
             case .success(let currencyList):

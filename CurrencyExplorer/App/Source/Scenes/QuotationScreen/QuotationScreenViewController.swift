@@ -15,16 +15,23 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupModel()
-        model.getQuotations()
+        bindModel()
+        bindControls()
+        model.getQuotations(amount: 1.0)
 
         internalView.currencyText = "JPY"
         internalView.descriptionText = "Japão Yene"
     }
 
-    private func setupModel() {
+    private func bindModel() {
         model.onUpdateQuotes = { quotes in
-            self.internalView.quotes = quotes
+            self.internalView.quotes = quotes.sorted()
+        }
+    }
+
+    private func bindControls() {
+        internalView.onSelectQuote = { quote in
+            self.model.getQuotations(amount: 1.0, for: quote.symbol)
         }
     }
 

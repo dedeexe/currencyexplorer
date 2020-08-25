@@ -1,4 +1,4 @@
-public struct Quote {
+public struct Quote: Codable {
     public let currency: String
     public let value: Double
 

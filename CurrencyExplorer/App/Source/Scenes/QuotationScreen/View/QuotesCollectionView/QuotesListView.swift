@@ -22,6 +22,7 @@ class QuotesListView: UIView {
         tableHandler = TableViewHandler(tableView: tableView)
         super.init(frame: .zero)
         setupLayout()
+        bindControls()
     }
 
     @available(*, unavailable)

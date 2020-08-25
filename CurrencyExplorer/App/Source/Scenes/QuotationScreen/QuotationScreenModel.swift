@@ -3,20 +3,21 @@ import HexagonArchtecture
 import HexagonEdges
 
 final class QuotationScreenModel {
-    let service = CurrencyServiceProvider.default()
-
+    let service = QuotationsServiceProvider.default()
+    private var quotes: [QuoteInfo] = []
     var onUpdateQuotes: (([QuoteInfo]) -> Void)?
 
     init() {}
 
-    func getQuotations() {
-        service.getQuotations { result in
-            switch result {
-            case .success(let quotations):
-                self.onUpdateQuotes?(quotations.mappedQuotes.map(QuoteInfo.init))
-            case .failure:
+    func getQuotations(amount:Double, for symbol: String = "USD") {
+        service.getQuotations(amount: amount, for: symbol) { quotation, error in
+            if error != nil {
                 self.onUpdateQuotes?([])
+                return
             }
+            
+            let quotes = quotation?.quotes ?? []
+            self.onUpdateQuotes?(quotes.map(QuoteInfo.init))
         }
     }
 }

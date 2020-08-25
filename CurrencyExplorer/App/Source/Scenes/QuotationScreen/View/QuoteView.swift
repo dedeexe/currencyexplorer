@@ -91,5 +91,3 @@ class QuoteView: UIView {
         backgroundColor = Style.Color.primary.token
     }
 }
-
-
