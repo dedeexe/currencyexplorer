@@ -26,6 +26,6 @@ private extension QuoteInfo {
     init(quote: Quote) {
         self.init(symbol: quote.currency,
                   value: quote.value,
-                  country: "País muito louco das estrelas")
+                  country: quote.country)
     }
 }

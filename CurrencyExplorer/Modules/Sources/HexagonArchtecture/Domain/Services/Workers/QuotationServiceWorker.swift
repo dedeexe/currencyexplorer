@@ -43,32 +43,36 @@ class QuotationServiceWorker: QuotationService {
     }
 
     func getQuotations(amount: Double, for symbol: String, completion: @escaping (Quotation?, Error?) -> Void) {
-        if quotesIsEmpty || canRequest {
-            service.getQuotations { [weak self] result in
-                switch result {
-                case .success(let quotation):
-                    self?.saveQuotation(quotation)
-                    let calculatedQuotation = QuotationCalculator(quotation: quotation).calculate(amount: amount, for: symbol)
-                    completion(calculatedQuotation, nil)
-                    return
+        getSymbols { symbols in
+            if self.quotesIsEmpty || self.canRequest {
+                self.service.getQuotations { [weak self] result in
+                    switch result {
+                    case .success(let quotation):
+                        self?.saveQuotation(quotation)
+                        let calculatedQuotation = QuotationCalculator(quotation: quotation).calculate(amount: amount, for: symbol)
+                        let symbolQuotation = Quotation(quotation: calculatedQuotation, merging: symbols?.mappedCurrencies ?? [])
+                        completion(symbolQuotation, nil)
+                        return
 
-                case .failure(let error):
-                    completion(nil, error)
-                    return
+                    case .failure(let error):
+                        completion(nil, error)
+                        return
+                    }
                 }
+                return
             }
+
+            guard let storedQuotation = self.quotation else {
+                let error = NSError(domain: "Quotation not found", code: 0, userInfo: nil)
+                completion(nil, error)
+                return
+            }
+
+            let calculatedQuotation = QuotationCalculator(quotation: storedQuotation).calculate(amount: amount, for: symbol)
+            let symbolQuotation = Quotation(quotation: calculatedQuotation, merging: symbols?.mappedCurrencies ?? [])
+            completion(symbolQuotation, nil)
             return
         }
-
-        guard let storedQuotation = quotation else {
-            let error = NSError(domain: "Quotation not found", code: 0, userInfo: nil)
-            completion(nil, error)
-            return
-        }
-
-        let calculatedQuotation = QuotationCalculator(quotation: storedQuotation).calculate(amount: amount, for: symbol)
-        completion(calculatedQuotation, nil)
-        return
     }
 
     private func getSymbols(completion: @escaping (CurrencyList?) -> Void) {
@@ -146,7 +150,7 @@ private extension Quotation {
 
 private extension Quote {
     init(quote: Quote, merging symbolList:[Currency]) {
-        let countrySymbol = quote.country.suffix(3)
+        let countrySymbol = quote.currency.suffix(3)
         let countryName = symbolList.filter { $0.symbol == countrySymbol }.first?.description ?? ""
 
         self.init(currency: quote.currency,

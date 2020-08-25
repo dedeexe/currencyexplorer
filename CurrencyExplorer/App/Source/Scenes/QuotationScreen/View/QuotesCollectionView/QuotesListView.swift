@@ -1,5 +1,4 @@
 import UIKit
-import HexagonEdges
 
 class QuotesListView: UIView {
     var quotes: [QuoteInfo] = [] {

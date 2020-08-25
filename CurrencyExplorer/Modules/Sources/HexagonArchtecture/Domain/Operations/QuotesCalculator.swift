@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by User on 8/24/20.
-//
-
 import Foundation
 import HexagonEdges
 
