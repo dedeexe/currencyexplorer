@@ -16,18 +16,12 @@ final class FileManagerServiceAdapter: FileManagerServicePort {
         }
     }
 
-    func readFile(name: String, completion: (Data?) -> Void) {
-        guard let path = homeDirectory()?.appendingPathComponent(name) else {
-            completion(nil)
-            return
+    func readFile(name: String) -> Data? {
+        guard let path = homeDirectory()?.appendingPathComponent(name), let data = try? Data(contentsOf: path) else {
+            return nil
         }
 
-        do {
-            let data = try Data(contentsOf: path)
-            completion(data)
-        } catch {
-            completion(nil)
-        }
+        return data
     }
 
     private func homeDirectory() -> URL? {

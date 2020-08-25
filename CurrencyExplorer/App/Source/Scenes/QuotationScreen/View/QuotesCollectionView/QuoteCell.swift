@@ -8,8 +8,8 @@ class QuoteCell: UITableViewCell {
 
     var quote: QuoteInfo? {
         didSet {
-            quoteView.currency = quote?.symbol
-            quoteView.value = String(quote?.value ?? "")
+            quoteView.currency = quote?.currencyTitle
+            quoteView.value = quote?.formattedValue
             quoteView.descriptionText = quote?.country
         }
     }

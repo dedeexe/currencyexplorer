@@ -25,7 +25,7 @@ final class QuotationScreenModel {
 private extension QuoteInfo {
     init(quote: Quote) {
         self.init(symbol: quote.currency,
-                  value: String(quote.value),
+                  value: quote.value,
                   country: "País muito louco das estrelas")
     }
 }

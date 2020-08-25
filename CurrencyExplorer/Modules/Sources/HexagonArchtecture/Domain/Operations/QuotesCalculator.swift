@@ -30,7 +30,7 @@ struct QuotationCalculator {
 
 private extension Quote {
     init(from quote:Quote, sourceValue: Double, amount: Double) {
-        let value = (sourceValue / quote.value) * amount
+        let value = (quote.value / sourceValue) * amount
         self.init(currency: quote.currency, value: value)
     }
 }

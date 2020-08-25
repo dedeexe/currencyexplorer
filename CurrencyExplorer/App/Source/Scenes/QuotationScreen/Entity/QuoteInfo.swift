@@ -2,7 +2,7 @@ import Foundation
 
 struct QuoteInfo: Comparable {
     let symbol: String
-    let value: String
+    let value: Double
     let country: String
 
     var currencyTitle: String {
@@ -11,6 +11,12 @@ struct QuoteInfo: Comparable {
         }
 
         return symbol
+    }
+
+    var formattedValue: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(floatLiteral: value)) ?? "-"
     }
 
     static func < (lhs: QuoteInfo, rhs: QuoteInfo) -> Bool {

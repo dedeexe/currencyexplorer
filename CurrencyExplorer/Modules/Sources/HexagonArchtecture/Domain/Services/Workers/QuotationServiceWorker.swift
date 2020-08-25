@@ -5,13 +5,17 @@ import HexagonEdges
 /// A proxy for CurrencyServiceWorker. Manage the  cache anda bypass requests for CyrrencyServiceWorker
 ///
 class QuotationServiceWorker: QuotationService {
+    private enum File: String {
+        case quotation = "quotation.json"
+        case currencies = "currencies.json"
+    }
 
-    private let filename = "quotations.json"
     private let fileManager: FileManagerServicePort
     private let session: Session
     private let service: CurrencyService
     private let requestTimeSpace: Int
     private var quotation: Quotation?
+    private var currencyList: CurrencyList?
 
     private var canRequest: Bool {
         return (Int(Date().timeIntervalSince1970) - (quotation?.localtimestamp ?? 0)) > requestTimeSpace
@@ -34,6 +38,7 @@ class QuotationServiceWorker: QuotationService {
             service: RequestServiceAdapter()
         )
 
+        restoreCurrencies()
         restoreQuotation()
     }
 
@@ -66,25 +71,86 @@ class QuotationServiceWorker: QuotationService {
         return
     }
 
-    private func saveQuotation(_ quotation: Quotation?) {
-        guard let quotation = quotation?.updatedQuotation, quotation.hasError == false else {
+    private func getSymbols(completion: @escaping (CurrencyList?) -> Void) {
+        if let currencies = self.currencyList {
+            completion(currencies)
             return
         }
 
-        self.quotation = quotation
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(quotation) {
-            fileManager.saveFile(name: filename, content: data)
-        }
-    }
-
-    private func restoreQuotation() {
-        fileManager.readFile(name: self.filename) { data in
-            let decoder = JSONDecoder()
-            if let data = data, let quotation = try? decoder.decode(Quotation.self, from: data) {
-                self.quotation = quotation
+        service.getSymbols { [weak self] result in
+            switch result {
+            case .success(let currencyList):
+                completion(currencyList)
+                self?.saveCurrencies(currencyList)
+            case .failure:
+                completion(nil)
             }
         }
     }
 
+    private func saveQuotation(_ quotation: Quotation?) {
+        if let quotation = quotation?.updatedQuotation, quotation.hasError == false {
+            self.quotation = quotation
+            saveObject(quotation, in: .quotation)
+        }
+    }
+
+    private func restoreQuotation() {
+        if let quotation: Quotation = restoreObject(from: .quotation) {
+            self.quotation = quotation
+        }
+    }
+
+    private func saveCurrencies(_ currencies: CurrencyList?) {
+        if let quotation = quotation?.updatedQuotation, quotation.hasError == false {
+            self.quotation = quotation
+            saveObject(quotation, in: .quotation)
+        }
+    }
+
+    private func restoreCurrencies() {
+        if let quotation: Quotation = restoreObject(from: .quotation) {
+            self.quotation = quotation
+        }
+    }
+
+    private func saveObject<T: Encodable>(_ object: T, in file: File) {
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(object) {
+            fileManager.saveFile(name: file.rawValue, content: data)
+        }
+    }
+
+    private func restoreObject<T: Decodable>(from file: File) -> T? {
+        let data = fileManager.readFile(name: file.rawValue)
+        let decoder = JSONDecoder()
+
+        if let data = data, let object = try? decoder.decode(T.self, from: data) {
+            return object
+        }
+        return nil
+    }
+}
+
+private extension Quotation {
+    init(quotation: Quotation, merging symbols: [Currency]) {
+        let quotes = (quotation.quotes ?? []).map { Quote(quote: $0, merging: symbols) }
+        self.init(success: quotation.success,
+                  source: quotation.source,
+                  timestamp: quotation.timestamp,
+                  localtimestamp: quotation.localtimestamp,
+                  quotes: quotes,
+                  error: quotation.error)
+    }
+}
+
+private extension Quote {
+    init(quote: Quote, merging symbolList:[Currency]) {
+        let countrySymbol = quote.country.suffix(3)
+        let countryName = symbolList.filter { $0.symbol == countrySymbol }.first?.description ?? ""
+
+        self.init(currency: quote.currency,
+                  value: quote.value,
+                  country: countryName)
+    }
 }
