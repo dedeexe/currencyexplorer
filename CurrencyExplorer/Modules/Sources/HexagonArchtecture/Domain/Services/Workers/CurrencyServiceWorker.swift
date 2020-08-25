@@ -51,6 +51,7 @@ private extension Quotation {
         self.init(success: response.success,
                   source: response.source,
                   timestamp: response.timestamp,
+                  localtimestamp: Int(Date().timeIntervalSince1970),
                   quotes: quotes,
                   error: response.error)
     }

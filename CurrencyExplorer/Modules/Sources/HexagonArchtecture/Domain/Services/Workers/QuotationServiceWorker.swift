@@ -14,7 +14,7 @@ class QuotationServiceWorker: QuotationService {
     private var quotation: Quotation?
 
     private var canRequest: Bool {
-        return (Int(Date().timeIntervalSince1970) - (quotation?.timestamp ?? 0)) > requestTimeSpace
+        return (Int(Date().timeIntervalSince1970) - (quotation?.localtimestamp ?? 0)) > requestTimeSpace
     }
 
     private var quotesIsEmpty: Bool {
@@ -67,7 +67,7 @@ class QuotationServiceWorker: QuotationService {
     }
 
     private func saveQuotation(_ quotation: Quotation?) {
-        guard let quotation = quotation, quotation.hasError == false else {
+        guard let quotation = quotation?.updatedQuotation, quotation.hasError == false else {
             return
         }
 
