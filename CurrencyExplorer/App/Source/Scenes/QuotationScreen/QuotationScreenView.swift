@@ -26,15 +26,9 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
-    var descriptionText: String? {
-        didSet {
-            //headerView.descriptionText = descriptionText
-        }
-    }
-
     var currencyText: String? {
         didSet {
-            //headerView.complement = currencyText
+            drawer.currency = currencyText ?? ""
         }
     }
 
@@ -44,7 +38,7 @@ final class QuotationScreenView: UIView {
         }
     }
 
-    var onSelectQuote: ((QuoteInfo) -> Void)?
+    var onSelectQuote: ((QuoteInfo, Double) -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -98,7 +92,13 @@ final class QuotationScreenView: UIView {
 
     func bindControls() {
         listView.onSelectItem = { quote, _ in
-            self.onSelectQuote?(quote)
+            self.onSelectQuote?(quote, self.drawer.value)
+        }
+
+        drawer.onConfirmValue = { value in
+            if let selected = self.quotes.filter { $0.selected }.first {
+                self.onSelectQuote?(selected, value)
+            }
         }
     }
 }

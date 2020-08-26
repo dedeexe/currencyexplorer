@@ -11,6 +11,7 @@ class QuoteCell: UITableViewCell {
             quoteView.currency = quote?.currencyTitle
             quoteView.value = quote?.formattedValue
             quoteView.descriptionText = quote?.country
+            quoteView.isMarked = quote?.selected ?? false
         }
     }
 

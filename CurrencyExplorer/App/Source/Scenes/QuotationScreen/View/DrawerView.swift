@@ -82,7 +82,20 @@ class DrawerView: UIView {
         }
     }
 
-    var onConfirmValue: ((String) -> Void)?
+    var value: Double = 0.0 {
+        didSet {
+            valueLabel.text = value.formattedCurrency
+            textfield.text = value.string
+        }
+    }
+
+    var currency: String = "" {
+        didSet {
+            currencyLabel.text = currency
+        }
+    }
+
+    var onConfirmValue: ((Double) -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -162,9 +175,11 @@ class DrawerView: UIView {
 
     @objc func send() {
         let value = textfield.text ?? ""
+        self.value = value.toDouble ?? 0.0
+
         editingMode(false)
+        onConfirmValue?(self.value)
         textfield.resignFirstResponder()
-        onConfirmValue?(value)
     }
 }
 

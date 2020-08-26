@@ -17,10 +17,7 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
         super.viewDidLoad()
         bindModel()
         bindControls()
-        model.getQuotations(amount: 1.0)
-
-        internalView.currencyText = "JPY"
-        internalView.descriptionText = "Japão Yene"
+        model.getQuotations(amount: 1.0, for: "USDUSD")
     }
 
     private func bindModel() {
@@ -30,8 +27,8 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
     }
 
     private func bindControls() {
-        internalView.onSelectQuote = { quote in
-            self.model.getQuotations(amount: 1.0, for: quote.symbol)
+        internalView.onSelectQuote = { quote, amount in
+            self.model.getQuotations(amount: amount, for: quote.symbol)
             self.becomeFirstResponder()
         }
     }

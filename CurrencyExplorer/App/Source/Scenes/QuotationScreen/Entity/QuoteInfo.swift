@@ -4,6 +4,7 @@ struct QuoteInfo: Comparable {
     let symbol: String
     let value: Double
     let country: String
+    let selected: Bool
 
     var currencyTitle: String {
         if symbol.count > 3 {
@@ -14,9 +15,7 @@ struct QuoteInfo: Comparable {
     }
 
     var formattedValue: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter.string(from: NSNumber(floatLiteral: value)) ?? "-"
+        return value.formattedCurrency
     }
 
     static func < (lhs: QuoteInfo, rhs: QuoteInfo) -> Bool {
