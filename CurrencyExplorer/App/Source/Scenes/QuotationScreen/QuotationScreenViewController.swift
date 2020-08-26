@@ -32,6 +32,7 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
     private func bindControls() {
         internalView.onSelectQuote = { quote in
             self.model.getQuotations(amount: 1.0, for: quote.symbol)
+            self.becomeFirstResponder()
         }
     }
 

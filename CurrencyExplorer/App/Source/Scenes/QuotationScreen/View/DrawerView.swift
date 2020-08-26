@@ -1,12 +1,10 @@
 import UIKit
 
 class DrawerView: UIView {
-
     private let topStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fillEqually
-        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -16,7 +14,15 @@ class DrawerView: UIView {
         view.axis = .vertical
         view.distribution = .fill
         view.spacing = 20
-        view.isUserInteractionEnabled = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let buttonStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
+        view.alignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -27,7 +33,6 @@ class DrawerView: UIView {
         view.textAlignment = .left
         view.textColor = Style.Color.secondary.token
         view.text = "USD"
-        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,33 +43,34 @@ class DrawerView: UIView {
         view.textAlignment = .right
         view.textColor = Style.Color.secondary.token
         view.text = "0,00"
-        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let textfield: UITextField = {
         let view = UITextField()
-        view.font = UIFont.boldSystemFont(ofSize: 16)
+        view.font = UIFont.boldSystemFont(ofSize: 20)
         view.backgroundColor = UIColor.white
+        view.textColor = UIColor.darkGray
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         view.textAlignment = .center
+        view.keyboardType = .decimalPad
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let confirmButton: UIButton = {
-        let view = UIButton()
+        let view = UIButton(type: .system)
         view.setTitle("Continue", for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.setTitleColor(Style.Color.secondary.token, for: .normal)
+        view.backgroundColor = Style.Color.action.token
+        view.titleLabel?.font = Style.Font.action.token
+        view.layer.cornerRadius = 8.0
+        view.layer.masksToBounds = true
+        view.addTarget(self, action: #selector(send), for: .touchUpInside)
         return view
-    }()
-
-    private let tapGesture: UITapGestureRecognizer = {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        gesture.numberOfTapsRequired = 1
-        return gesture
     }()
 
     private var bottomLayoutConstraint: NSLayoutConstraint = NSLayoutConstraint()
@@ -75,6 +81,8 @@ class DrawerView: UIView {
             editingMode(isEditing)
         }
     }
+
+    var onConfirmValue: ((String) -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -102,16 +110,20 @@ class DrawerView: UIView {
         topStackView.addArrangedSubview(valueLabel)
         mainStackView.addArrangedSubview(topStackView)
         mainStackView.addArrangedSubview(textfield)
-        mainStackView.addArrangedSubview(confirmButton)
+        buttonStackView.addArrangedSubview(confirmButton)
+        mainStackView.addArrangedSubview(buttonStackView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             mainStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             mainStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
 
-            textfield.heightAnchor.constraint(equalToConstant: 36)
+            textfield.heightAnchor.constraint(equalToConstant: 36),
+
+            confirmButton.heightAnchor.constraint(equalToConstant: 36),
+            confirmButton.widthAnchor.constraint(equalToConstant: 150)
         ])
         bottomLayoutConstraint = mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40)
         bottomLayoutConstraint.isActive = true
@@ -126,9 +138,6 @@ class DrawerView: UIView {
     }
 
     private func bindControls() {
-        mainStackView.addGestureRecognizer(tapGesture)
-        isUserInteractionEnabled = true
-
         let nc = NotificationCenter.default
 
         nc.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
@@ -136,7 +145,7 @@ class DrawerView: UIView {
             guard let height = keyboardFrame?.cgRectValue.height else {
                 return
             }
-            self.bottomLayoutConstraint.constant = -height
+            self.bottomLayoutConstraint.constant = -(height + 30)
             self.isEditing = true
         }
 
@@ -146,9 +155,16 @@ class DrawerView: UIView {
         }
     }
 
-    @objc func tapAction() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         editingMode(true)
         textfield.becomeFirstResponder()
+    }
+
+    @objc func send() {
+        let value = textfield.text ?? ""
+        editingMode(false)
+        textfield.resignFirstResponder()
+        onConfirmValue?(value)
     }
 }
 
