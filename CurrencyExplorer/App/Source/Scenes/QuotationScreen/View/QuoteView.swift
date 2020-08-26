@@ -59,8 +59,6 @@ class QuoteView: UIView {
         return view
     }()
 
-    private var markConstraint: NSLayoutConstraint = NSLayoutConstraint()
-
     var currency: String? {
         didSet {
             titleLabel.text = currency
@@ -82,15 +80,12 @@ class QuoteView: UIView {
     var isMarked: Bool = false {
         didSet {
             if isMarked {
-                markConstraint.constant = 8
                 markView.backgroundColor = Style.Color.selection.foreground
                 backgroundColor = Style.Color.selection.background
                 return
             }
-
             markView.backgroundColor = Style.Color.action.background
             backgroundColor = Style.Color.primary.background
-            markConstraint.constant = 4
         }
     }
 
@@ -121,10 +116,9 @@ class QuoteView: UIView {
             mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             mainStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             mainStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-        ])
 
-        markConstraint = markView.widthAnchor.constraint(equalToConstant: 4)
-        markConstraint.isActive = true
+            markView.widthAnchor.constraint(equalToConstant: 4)
+        ])
 
         backgroundColor = Style.Color.primary.background
     }

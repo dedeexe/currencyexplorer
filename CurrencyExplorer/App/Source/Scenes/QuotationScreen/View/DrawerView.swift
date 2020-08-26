@@ -66,7 +66,7 @@ class DrawerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setTitleColor(Style.Color.action.foreground, for: .normal)
         view.backgroundColor = Style.Color.action.background
-        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        view.titleLabel?.font = Style.Font.action
         view.layer.cornerRadius = 8.0
         view.layer.masksToBounds = true
         view.addTarget(self, action: #selector(send), for: .touchUpInside)

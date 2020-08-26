@@ -48,7 +48,7 @@ final class QuotationScreenView: UIView {
 
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = Style.Color.primary.background
         addComponents()
         setupLayout()
         bindControls()
