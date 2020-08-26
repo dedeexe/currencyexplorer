@@ -7,6 +7,7 @@ extension Style {
         case primary
         case secondary
         case background
+        case drawer
 
         var token: UIColor? {
             return UIColor(named: self.rawValue)

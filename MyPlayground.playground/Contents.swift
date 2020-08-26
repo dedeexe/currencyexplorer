@@ -1,5 +1,18 @@
 import UIKit
 
-var str = "Hello, playground"
+enum TimeType: String, CaseIterable {
+    case day = "d"
+    case minute = "min"
+    case hour = "hour"
+    case nothing = ""
 
-print(Int(Date().timeIntervalSince1970))
+    var isRightTupe: Bool {
+
+    }
+}
+
+extension TimeType {
+    init(value: String) {
+
+    }
+}

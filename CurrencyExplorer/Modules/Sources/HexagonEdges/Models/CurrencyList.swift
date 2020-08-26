@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CurrencyList: Decodable, Equatable {
+public struct CurrencyList: Codable, Equatable {
     public var success: Bool?
     public var currencies: [String: String]?
     public var error: ResponseError?

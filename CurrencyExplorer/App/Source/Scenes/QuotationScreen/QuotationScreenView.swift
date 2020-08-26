@@ -18,6 +18,8 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
+    private let drawer = DrawerView()
+
     private let listView: QuotesListView = {
         let view = QuotesListView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +63,7 @@ final class QuotationScreenView: UIView {
         topView.addSubview(headerLabel)
         addSubview(topView)
         addSubview(listView)
+        addSubview(drawer)
     }
 
     private func setupLayout() {
@@ -84,6 +87,12 @@ final class QuotationScreenView: UIView {
             listView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
             listView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             listView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+        ])
+
+        NSLayoutConstraint.activate([
+            drawer.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+            drawer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+            drawer.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
         ])
     }
 

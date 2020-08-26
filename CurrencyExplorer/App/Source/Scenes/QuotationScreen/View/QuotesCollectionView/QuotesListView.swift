@@ -32,6 +32,8 @@ class QuotesListView: UIView {
     private func setupLayout() {
         addSubview(tableView)
         tableView.alignEdgesTo(view: self)
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 60, right: 0)
+        tableView.separatorStyle = .none
     }
 
     private func bindControls() {

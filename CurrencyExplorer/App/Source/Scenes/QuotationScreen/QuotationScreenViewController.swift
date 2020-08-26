@@ -38,4 +38,5 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         becomeFirstResponder()
     }
+
 }

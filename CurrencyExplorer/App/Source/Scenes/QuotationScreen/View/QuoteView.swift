@@ -3,7 +3,7 @@ import UIKit
 class QuoteView: UIView {
     private let titleLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 14)
+        view.font = UIFont.boldSystemFont(ofSize: 16)
         view.textAlignment = .left
         view.textColor = Style.Color.secondary.token
         return view
@@ -12,20 +12,20 @@ class QuoteView: UIView {
     private let descriptionLabel: UILabel = {
        let view = UILabel()
        view.font = UIFont.systemFont(ofSize: 14)
-       view.textAlignment = .right
-        view.textColor = UIColor.lightGray
+       view.textAlignment = .left
+        view.textColor = UIColor.yellow
        return view
     }()
 
     private let valueLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 20)
+        view.font = UIFont.boldSystemFont(ofSize: 16)
         view.textAlignment = .right
         view.textColor = Style.Color.secondary.token
         return view
     }()
 
-    private let mainStackView: UIStackView = {
+    private let outerStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
@@ -34,12 +34,28 @@ class QuoteView: UIView {
         return view
     }()
 
-    private let infoStackVIew: UIStackView = {
+    private let mainStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fill
         view.spacing = 8
+        return view
+    }()
+
+    private let infoStackVIew: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.spacing = 8
+        return view
+    }()
+
+    private let markView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.cyan
         return view
     }()
 
@@ -73,19 +89,22 @@ class QuoteView: UIView {
     }
 
     private func addComponents() {
-        addSubview(mainStackView)
+        addSubview(outerStackView)
+        outerStackView.addArrangedSubview(markView)
+        outerStackView.addArrangedSubview(mainStackView)
         mainStackView.addArrangedSubview(infoStackVIew)
-        mainStackView.addArrangedSubview(valueLabel)
+        mainStackView.addArrangedSubview(descriptionLabel)
         infoStackVIew.addArrangedSubview(titleLabel)
-        infoStackVIew.addArrangedSubview(descriptionLabel)
+        infoStackVIew.addArrangedSubview(valueLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             mainStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            mainStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20)
+            mainStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            markView.widthAnchor.constraint(equalToConstant: 4)
         ])
 
         backgroundColor = Style.Color.primary.token

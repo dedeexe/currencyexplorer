@@ -106,15 +106,15 @@ class QuotationServiceWorker: QuotationService {
     }
 
     private func saveCurrencies(_ currencies: CurrencyList?) {
-        if let quotation = quotation?.updatedQuotation, quotation.hasError == false {
-            self.quotation = quotation
-            saveObject(quotation, in: .quotation)
+        if let currencies = currencies {
+            self.currencyList = currencies
+            saveObject(currencies, in: .currencies)
         }
     }
 
     private func restoreCurrencies() {
-        if let quotation: Quotation = restoreObject(from: .quotation) {
-            self.quotation = quotation
+        if let currencies: CurrencyList = restoreObject(from: .currencies) {
+            self.currencyList = currencies
         }
     }
 
