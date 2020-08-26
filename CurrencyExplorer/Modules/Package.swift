@@ -16,7 +16,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "git@github.com:dedeexe/DDXNetwork.git", .exact("1.0.0"))
+        .package(url: "git@github.com:dedeexe/DDXNetwork.git", .exact("1.0.0")),
     ],
     targets: [
 

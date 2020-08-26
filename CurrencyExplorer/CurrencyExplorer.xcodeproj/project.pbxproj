@@ -13,6 +13,8 @@
 		0B35F74B24F099D50031E7FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B35F74924F099D50031E7FD /* LaunchScreen.storyboard */; };
 		0B4BCDD524F705C800919059 /* UIColor+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCDD424F705C800919059 /* UIColor+ExtensionsTests.swift */; };
 		0B4BCDD724F709E500919059 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCDD624F709E500919059 /* Double+Formatter.swift */; };
+		0B7F028024F711D300F54ADD /* QuotationScreenModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */; };
+		0B7F028424F7126500F54ADD /* QuotationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F028224F7120D00F54ADD /* QuotationServiceMock.swift */; };
 		0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66124F3648400960AED /* QuoteInfo.swift */; };
 		0BA1E66424F3D56400960AED /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66324F3D56400960AED /* Style.swift */; };
 		0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */; };
@@ -52,6 +54,8 @@
 		0B35F74C24F099D50031E7FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B4BCDD424F705C800919059 /* UIColor+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		0B4BCDD624F709E500919059 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
+		0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenModelTests.swift; sourceTree = "<group>"; };
+		0B7F028224F7120D00F54ADD /* QuotationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationServiceMock.swift; sourceTree = "<group>"; };
 		0BA1E66124F3648400960AED /* QuoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInfo.swift; sourceTree = "<group>"; };
 		0BA1E66324F3D56400960AED /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0B7F027C24F7112300F54ADD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F028124F711F500F54ADD /* Helpers */,
+				0B7F027D24F7112F00F54ADD /* QuotationScreen */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0B7F027D24F7112F00F54ADD /* QuotationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */,
+			);
+			path = QuotationScreen;
+			sourceTree = "<group>";
+		};
+		0B7F028124F711F500F54ADD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0B7F028224F7120D00F54ADD /* QuotationServiceMock.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0BA1E66024F3647500960AED /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +275,7 @@
 		0BE0D8CD24F293720036F8F9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0B7F027C24F7112300F54ADD /* Scenes */,
 				0B4BCDD324F7034C00919059 /* Extensions */,
 				0BE0D8D624F294660036F8F9 /* Common */,
 				0BE0D8D024F293720036F8F9 /* Info.plist */,
@@ -347,6 +377,9 @@
 				Base,
 			);
 			mainGroup = 0B35F73224F099D20031E7FD;
+			packageReferences = (
+				0B7F027924F7100D00F54ADD /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 0B35F73C24F099D30031E7FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -407,7 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7F028424F7126500F54ADD /* QuotationServiceMock.swift in Sources */,
 				0B4BCDD524F705C800919059 /* UIColor+ExtensionsTests.swift in Sources */,
+				0B7F028024F711D300F54ADD /* QuotationScreenModelTests.swift in Sources */,
 				0B4BCDD724F709E500919059 /* Double+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +691,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B7F027924F7100D00F54ADD /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		0BD0FBE924F314CE00A4EC11 /* HexagonalArchtecture */ = {

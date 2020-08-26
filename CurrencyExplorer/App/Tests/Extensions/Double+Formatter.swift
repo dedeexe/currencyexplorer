@@ -1,11 +1,3 @@
-//
-//  Double+Formatter.swift
-//  CurrencyExplorerTests
-//
-//  Created by User on 8/26/20.
-//  Copyright © 2020 User. All rights reserved.
-//
-
 import XCTest
 
 class Double_Formatter: XCTestCase {
