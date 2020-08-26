@@ -68,13 +68,13 @@ class CurrencyServiceWorkerTests: XCTestCase {
 
             switch result {
             case .success(let quotation):
-                let quotes = quotation.quotes ?? [:]
+                let quotes = (quotation.quotes ?? []).sorted { $0.currency < $1.currency }
                 XCTAssertTrue(quotation.success ?? false)
                 XCTAssertEqual(quotes.count, 3)
                 XCTAssertEqual(quotation.source ?? "", "USD")
-                XCTAssertTrue(quotes.keys.contains("USDAED"))
-                XCTAssertTrue(quotes.keys.contains("USDBRL"))
-                XCTAssertTrue(quotes.keys.contains("USDBSD"))
+                XCTAssertTrue(quotes[0].currency.contains("USDAED"))
+                XCTAssertTrue(quotes[1].currency.contains("USDBRL"))
+                XCTAssertTrue(quotes[2].currency.contains("USDBSD"))
                 break
 
             case .failure:
