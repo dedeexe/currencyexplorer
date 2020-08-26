@@ -15,6 +15,7 @@
 		0B4BCDD724F709E500919059 /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BCDD624F709E500919059 /* Double+Formatter.swift */; };
 		0B7F028024F711D300F54ADD /* QuotationScreenModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */; };
 		0B7F028424F7126500F54ADD /* QuotationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F028224F7120D00F54ADD /* QuotationServiceMock.swift */; };
+		0B7F028624F7265F00F54ADD /* QuotationScreenCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */; };
 		0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66124F3648400960AED /* QuoteInfo.swift */; };
 		0BA1E66424F3D56400960AED /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66324F3D56400960AED /* Style.swift */; };
 		0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */; };
@@ -56,6 +57,7 @@
 		0B4BCDD624F709E500919059 /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenModelTests.swift; sourceTree = "<group>"; };
 		0B7F028224F7120D00F54ADD /* QuotationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationServiceMock.swift; sourceTree = "<group>"; };
+		0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenCoordinatorTests.swift; sourceTree = "<group>"; };
 		0BA1E66124F3648400960AED /* QuoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInfo.swift; sourceTree = "<group>"; };
 		0BA1E66324F3D56400960AED /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */,
+				0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */,
 			);
 			path = QuotationScreen;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			files = (
 				0B7F028424F7126500F54ADD /* QuotationServiceMock.swift in Sources */,
 				0B4BCDD524F705C800919059 /* UIColor+ExtensionsTests.swift in Sources */,
+				0B7F028624F7265F00F54ADD /* QuotationScreenCoordinatorTests.swift in Sources */,
 				0B7F028024F711D300F54ADD /* QuotationScreenModelTests.swift in Sources */,
 				0B4BCDD724F709E500919059 /* Double+Formatter.swift in Sources */,
 			);
