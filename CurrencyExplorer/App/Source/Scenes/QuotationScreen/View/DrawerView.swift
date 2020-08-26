@@ -158,14 +158,30 @@ class DrawerView: UIView {
             guard let height = keyboardFrame?.cgRectValue.height else {
                 return
             }
-            self.bottomLayoutConstraint.constant = -(height + 30)
-            self.isEditing = true
+            self.showDrawer(height: height, animationDuration: 0.25)
         }
 
         nc.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { notification in
-            self.bottomLayoutConstraint.constant = self.defaultKeyboardOffset
-            self.isEditing = false
+            self.hideDrawer(animationDuration: 0.25)
         }
+    }
+
+    private func showDrawer(height: CGFloat, animationDuration: TimeInterval) {
+        isEditing = true
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: { self.bottomLayoutConstraint.constant = -(height + 30) },
+                       completion: nil)
+    }
+
+    private func hideDrawer(animationDuration: TimeInterval) {
+        isEditing = false
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: { self.bottomLayoutConstraint.constant = self.defaultKeyboardOffset },
+                       completion: nil)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

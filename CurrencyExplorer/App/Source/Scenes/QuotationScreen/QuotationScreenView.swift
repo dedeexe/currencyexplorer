@@ -26,15 +26,20 @@ final class QuotationScreenView: UIView {
         return view
     }()
 
-    var currencyText: String? {
+    private var currencyText: String? {
         didSet {
             drawer.currency = currencyText ?? ""
         }
     }
 
-    var quotes: [QuoteInfo] = [] {
+    private var amount: Double? {
         didSet {
-            drawer.currency = quotes.filter { $0.selected }.first?.currencyTitle ?? "-"
+            drawer.value = amount ?? 0.0
+        }
+    }
+
+    private var quotes: [QuoteInfo] = [] {
+        didSet {
             listView.quotes = quotes
         }
     }
@@ -52,6 +57,12 @@ final class QuotationScreenView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func show(quotes:[QuoteInfo], amount: Double) {
+        self.quotes = quotes
+        self.amount = amount
+        self.currencyText = quotes.filter { $0.selected }.first?.currencyTitle ?? "-"
     }
 
     private func addComponents() {

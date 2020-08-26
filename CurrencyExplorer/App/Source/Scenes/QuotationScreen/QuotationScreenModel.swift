@@ -5,7 +5,7 @@ import HexagonEdges
 final class QuotationScreenModel {
     let service: QuotationService
     private var quotes: [QuoteInfo] = []
-    var onUpdateQuotes: (([QuoteInfo]) -> Void)?
+    var onUpdateQuotes: (([QuoteInfo], Double) -> Void)?
 
     init(service: QuotationService = QuotationsServiceProvider.default()) {
         self.service = service
@@ -14,12 +14,13 @@ final class QuotationScreenModel {
     func getQuotations(amount:Double, for symbol: String) {
         service.getQuotations(amount: amount, for: symbol) { quotation, error in
             if error != nil {
-                self.onUpdateQuotes?([])
+                self.onUpdateQuotes?([], 0)
                 return
             }
             
             let quotes = quotation?.quotes ?? []
-            self.onUpdateQuotes?(quotes.map { QuoteInfo(quote: $0, selectedSymbol: symbol) })
+            let mappedQuotes = quotes.map { QuoteInfo(quote: $0, selectedSymbol: symbol) }
+            self.onUpdateQuotes?(mappedQuotes, amount)
         }
     }
 }

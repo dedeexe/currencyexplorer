@@ -17,13 +17,16 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
         super.viewDidLoad()
         bindModel()
         bindControls()
-        model.getQuotations(amount: 1.0, for: "USDUSD")
+
+        let initialAmount = 1.0
+        let initialSymbol = "USDUSD"
+        model.getQuotations(amount: initialAmount, for: initialSymbol)
     }
 
     private func bindModel() {
-        model.onUpdateQuotes = { quotes in
+        model.onUpdateQuotes = { quotes, amount in
             DispatchQueue.main.async {
-                self.internalView.quotes = quotes.sorted()
+                self.internalView.show(quotes: quotes, amount: amount)
             }
         }
     }
