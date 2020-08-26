@@ -22,7 +22,9 @@ final class QuotationScreenViewController: BaseViewController<QuotationScreenVie
 
     private func bindModel() {
         model.onUpdateQuotes = { quotes in
-            self.internalView.quotes = quotes.sorted()
+            DispatchQueue.main.async {
+                self.internalView.quotes = quotes.sorted()
+            }
         }
     }
 

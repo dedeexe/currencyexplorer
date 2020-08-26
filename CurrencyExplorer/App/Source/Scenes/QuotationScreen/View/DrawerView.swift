@@ -32,7 +32,7 @@ class DrawerView: UIView {
         view.font = UIFont.systemFont(ofSize: 20)
         view.textAlignment = .left
         view.textColor = Style.Color.secondary.token
-        view.text = "USD"
+        view.text = "-"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -42,7 +42,7 @@ class DrawerView: UIView {
         view.font = UIFont.boldSystemFont(ofSize: 20)
         view.textAlignment = .right
         view.textColor = Style.Color.secondary.token
-        view.text = "0,00"
+        view.text = "0"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -85,7 +85,7 @@ class DrawerView: UIView {
     var value: Double = 0.0 {
         didSet {
             valueLabel.text = value.formattedCurrency
-            textfield.text = value.string
+            textfield.text = value.formattedLocalizedNumber
         }
     }
 

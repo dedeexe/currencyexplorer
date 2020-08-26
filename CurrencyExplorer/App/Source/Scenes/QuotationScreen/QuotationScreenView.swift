@@ -34,6 +34,7 @@ final class QuotationScreenView: UIView {
 
     var quotes: [QuoteInfo] = [] {
         didSet {
+            drawer.currency = quotes.filter { $0.selected }.first?.currencyTitle ?? "-"
             listView.quotes = quotes
         }
     }
@@ -90,7 +91,7 @@ final class QuotationScreenView: UIView {
         ])
     }
 
-    func bindControls() {
+    private func bindControls() {
         listView.onSelectItem = { quote, _ in
             self.onSelectQuote?(quote, self.drawer.value)
         }

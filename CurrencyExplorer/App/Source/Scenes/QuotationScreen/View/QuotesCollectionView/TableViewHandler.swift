@@ -25,9 +25,7 @@ class TableViewHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     private func reload() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
