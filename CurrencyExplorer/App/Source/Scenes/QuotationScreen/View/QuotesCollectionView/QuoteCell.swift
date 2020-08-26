@@ -29,7 +29,7 @@ class QuoteCell: UITableViewCell {
     func setupLayout() {
         contentView.addSubview(quoteView)
         quoteView.alignEdgesTo(view: contentView)
-        contentView.backgroundColor = Style.Color.primary.token
+        contentView.backgroundColor = Style.Color.primary.background
     }
 
 }

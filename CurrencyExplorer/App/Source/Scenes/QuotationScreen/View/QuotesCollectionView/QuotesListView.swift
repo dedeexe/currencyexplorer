@@ -13,7 +13,7 @@ class QuotesListView: UIView {
 
     let tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
-        view.backgroundColor = Style.Color.primary.token
+        view.backgroundColor = Style.Color.primary.background
         return view
     }()
 

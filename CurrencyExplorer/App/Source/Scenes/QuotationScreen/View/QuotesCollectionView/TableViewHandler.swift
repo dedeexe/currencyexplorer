@@ -18,7 +18,7 @@ class TableViewHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     private func setupComponents() {
-        tableView.backgroundColor = Style.Color.primary.token
+        tableView.backgroundColor = Style.Color.primary.background
         tableView.register(QuoteCell.self, forCellReuseIdentifier: QuoteCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self

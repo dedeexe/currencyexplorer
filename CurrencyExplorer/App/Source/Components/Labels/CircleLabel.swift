@@ -19,8 +19,8 @@ final class CircleLabel: UILabel {
     private func setupLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0).isActive = true
-        backgroundColor = Style.Color.primary.token
-        textColor = Style.Color.secondary.token
+        backgroundColor = Style.Color.primary.background
+        textColor = Style.Color.primary.foreground
     }
 }
 

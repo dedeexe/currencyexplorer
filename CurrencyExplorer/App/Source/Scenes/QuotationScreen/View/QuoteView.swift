@@ -3,25 +3,25 @@ import UIKit
 class QuoteView: UIView {
     private let titleLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 16)
+        view.font = Style.Font.primary
         view.textAlignment = .left
-        view.textColor = Style.Color.secondary.token
+        view.textColor = Style.Color.primary.foreground
         return view
     }()
 
     private let descriptionLabel: UILabel = {
        let view = UILabel()
-       view.font = UIFont.systemFont(ofSize: 14)
+        view.font = Style.Font.description
        view.textAlignment = .left
-        view.textColor = UIColor.yellow
+        view.textColor = Style.Color.description.foreground
        return view
     }()
 
     private let valueLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 16)
+        view.font = Style.Font.primary
         view.textAlignment = .right
-        view.textColor = Style.Color.secondary.token
+        view.textColor = Style.Color.primary.foreground
         return view
     }()
 
@@ -55,7 +55,7 @@ class QuoteView: UIView {
     private let markView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.cyan
+        view.backgroundColor = Style.Color.action.background
         return view
     }()
 
@@ -83,11 +83,13 @@ class QuoteView: UIView {
         didSet {
             if isMarked {
                 markConstraint.constant = 8
-                markView.backgroundColor = .purple
+                markView.backgroundColor = Style.Color.selection.foreground
+                backgroundColor = Style.Color.selection.background
                 return
             }
 
-            markView.backgroundColor = .cyan
+            markView.backgroundColor = Style.Color.action.background
+            backgroundColor = Style.Color.primary.background
             markConstraint.constant = 4
         }
     }
@@ -124,6 +126,6 @@ class QuoteView: UIView {
         markConstraint = markView.widthAnchor.constraint(equalToConstant: 4)
         markConstraint.isActive = true
 
-        backgroundColor = Style.Color.primary.token
+        backgroundColor = Style.Color.primary.background
     }
 }

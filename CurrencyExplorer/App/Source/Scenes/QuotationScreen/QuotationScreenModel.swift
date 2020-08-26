@@ -19,7 +19,10 @@ final class QuotationScreenModel {
             }
             
             let quotes = quotation?.quotes ?? []
-            let mappedQuotes = quotes.map { QuoteInfo(quote: $0, selectedSymbol: symbol) }
+            let mappedQuotes = quotes
+                .map { QuoteInfo(quote: $0, selectedSymbol: symbol) }
+                .sorted { $0.symbol < $1.symbol }
+
             self.onUpdateQuotes?(mappedQuotes, amount)
         }
     }

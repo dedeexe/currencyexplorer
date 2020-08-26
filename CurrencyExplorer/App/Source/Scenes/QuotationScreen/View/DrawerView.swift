@@ -29,9 +29,9 @@ class DrawerView: UIView {
 
     private let currencyLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 20)
+        view.font = Style.Font.info
         view.textAlignment = .left
-        view.textColor = Style.Color.secondary.token
+        view.textColor = Style.Color.drawer.foreground
         view.text = "-"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -39,19 +39,19 @@ class DrawerView: UIView {
 
     private let valueLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.boldSystemFont(ofSize: 20)
+        view.font = Style.Font.info
         view.textAlignment = .right
-        view.textColor = Style.Color.secondary.token
-        view.text = "0"
+        view.textColor = Style.Color.drawer.foreground
+        view.text = "-"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let textfield: UITextField = {
         let view = UITextField()
-        view.font = UIFont.boldSystemFont(ofSize: 20)
-        view.backgroundColor = UIColor.white
-        view.textColor = UIColor.darkGray
+        view.font = Style.Font.info
+        view.backgroundColor = Style.Color.inputText.background
+        view.textColor = Style.Color.inputText.foreground
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         view.textAlignment = .center
@@ -64,9 +64,9 @@ class DrawerView: UIView {
         let view = UIButton(type: .system)
         view.setTitle("Continue", for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.setTitleColor(Style.Color.secondary.token, for: .normal)
-        view.backgroundColor = Style.Color.action.token
-        view.titleLabel?.font = Style.Font.action.token
+        view.setTitleColor(Style.Color.action.foreground, for: .normal)
+        view.backgroundColor = Style.Color.action.background
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         view.layer.cornerRadius = 8.0
         view.layer.masksToBounds = true
         view.addTarget(self, action: #selector(send), for: .touchUpInside)
@@ -140,7 +140,7 @@ class DrawerView: UIView {
         ])
         bottomLayoutConstraint = mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40)
         bottomLayoutConstraint.isActive = true
-        backgroundColor = Style.Color.drawer.token
+        backgroundColor = Style.Color.drawer.background
     }
 
     private func editingMode(_ isEditing: Bool) {

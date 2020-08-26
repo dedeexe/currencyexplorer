@@ -13,8 +13,8 @@ final class QuotationScreenView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.text = "Quotations"
         view.textAlignment = .center
-        view.font = Style.Font.secondary.token
-        view.textColor = Style.Color.secondary.token
+        view.font = Style.Font.title
+        view.textColor = Style.Color.primary.foreground
         return view
     }()
 
@@ -73,7 +73,7 @@ final class QuotationScreenView: UIView {
     }
 
     private func setupLayout() {
-        backgroundColor = Style.Color.primary.token
+        backgroundColor = Style.Color.primary.background
 
         NSLayoutConstraint.activate([
             topView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -108,7 +108,7 @@ final class QuotationScreenView: UIView {
         }
 
         drawer.onConfirmValue = { value in
-            if let selected = self.quotes.filter { $0.selected }.first {
+            if let selected = self.quotes.filter({ $0.selected }).first {
                 self.onSelectQuote?(selected, value)
             }
         }
