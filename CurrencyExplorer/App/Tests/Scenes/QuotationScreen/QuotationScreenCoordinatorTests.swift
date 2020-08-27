@@ -28,12 +28,4 @@ class QuotationScreenCoordinatorTests: XCTestCase {
 
         XCTAssertTrue(vc.internalView is QuotationScreenView)       //Yes. It's obvious, but somebody still can change it in code.
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
