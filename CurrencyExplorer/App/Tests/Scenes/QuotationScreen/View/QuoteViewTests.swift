@@ -7,27 +7,29 @@
 //
 
 import XCTest
+import SnapshotTesting
+@testable import CurrencyExplorer
+
 
 class QuoteViewTests: XCTestCase {
+    let sut = QuoteView()
+    let recordSnapshot = false
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testNotSelected() throws {
+        sut.frame = CGRect(x: 0, y: 0, width: 250, height: 60)
+        sut.currency = "JPY"
+        sut.descriptionText = "Japan"
+        sut.isMarked = false
+        sut.value = "100.000,00"
+        assertSnapshot(matching: sut, as: .image, record: recordSnapshot)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testSelected() throws {
+        sut.frame = CGRect(x: 0, y: 0, width: 250, height: 60)
+        sut.currency = "JPY"
+        sut.descriptionText = "Japan"
+        sut.isMarked = true
+        sut.value = "100.000,00"
+        assertSnapshot(matching: sut, as: .image, record: recordSnapshot)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
