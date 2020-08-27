@@ -18,6 +18,9 @@
 		0B7F028624F7265F00F54ADD /* QuotationScreenCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */; };
 		0B7F028924F72DBE00F54ADD /* QuoteViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F028824F72DBE00F54ADD /* QuoteViewTests.swift */; };
 		0B7F028F24F73B2F00F54ADD /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7F028E24F73B2F00F54ADD /* SnapshotTesting */; };
+		0B7F029124F73E7B00F54ADD /* StyleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F029024F73E7B00F54ADD /* StyleColor.swift */; };
+		0B7F029324F73EAF00F54ADD /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F029224F73EAF00F54ADD /* Asset.swift */; };
+		0B7F029624F73F6D00F54ADD /* QuotationScreenViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F029424F73F0D00F54ADD /* QuotationScreenViewTests.swift */; };
 		0BA1E66224F3648400960AED /* QuoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66124F3648400960AED /* QuoteInfo.swift */; };
 		0BA1E66424F3D56400960AED /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66324F3D56400960AED /* Style.swift */; };
 		0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */; };
@@ -62,6 +65,9 @@
 		0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenCoordinatorTests.swift; sourceTree = "<group>"; };
 		0B7F028824F72DBE00F54ADD /* QuoteViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewTests.swift; sourceTree = "<group>"; };
 		0B7F028C24F7365B00F54ADD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0B7F029024F73E7B00F54ADD /* StyleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleColor.swift; sourceTree = "<group>"; };
+		0B7F029224F73EAF00F54ADD /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		0B7F029424F73F0D00F54ADD /* QuotationScreenViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationScreenViewTests.swift; sourceTree = "<group>"; };
 		0BA1E66124F3648400960AED /* QuoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInfo.swift; sourceTree = "<group>"; };
 		0BA1E66324F3D56400960AED /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		0BA1E66724F3DBA700960AED /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 				0B7F028724F72DA200F54ADD /* View */,
 				0B7F027F24F711D300F54ADD /* QuotationScreenModelTests.swift */,
 				0B7F028524F7265E00F54ADD /* QuotationScreenCoordinatorTests.swift */,
+				0B7F029424F73F0D00F54ADD /* QuotationScreenViewTests.swift */,
 			);
 			path = QuotationScreen;
 			sourceTree = "<group>";
@@ -286,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				0BA1E66324F3D56400960AED /* Style.swift */,
+				0B7F029024F73E7B00F54ADD /* StyleColor.swift */,
+				0B7F029224F73EAF00F54ADD /* Asset.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -446,9 +455,11 @@
 				0BC2E26C24F3225800734863 /* QuoteCell.swift in Sources */,
 				0BD0FBDF24F2E5E000A4EC11 /* UIView+Contraints.swift in Sources */,
 				0BD0FBE124F2F5D200A4EC11 /* QuoteView.swift in Sources */,
+				0B7F029124F73E7B00F54ADD /* StyleColor.swift in Sources */,
 				0BA1E66824F3DBA700960AED /* UIColor+Extensions.swift in Sources */,
 				0BE4EE4224F6131C005DF813 /* Double+Formatter.swift in Sources */,
 				0BE0D8BB24F1EE2A0036F8F9 /* QuotationScreenView.swift in Sources */,
+				0B7F029324F73EAF00F54ADD /* Asset.swift in Sources */,
 				0BE0D8B224F1EA410036F8F9 /* QuotationScreenViewController.swift in Sources */,
 				0BC64ABE24F340B70027DA0F /* QuotationScreenModel.swift in Sources */,
 				0B35F73F24F099D30031E7FD /* AppDelegate.swift in Sources */,
@@ -467,6 +478,7 @@
 				0B7F028024F711D300F54ADD /* QuotationScreenModelTests.swift in Sources */,
 				0B4BCDD724F709E500919059 /* Double+Formatter.swift in Sources */,
 				0B7F028924F72DBE00F54ADD /* QuoteViewTests.swift in Sources */,
+				0B7F029624F73F6D00F54ADD /* QuotationScreenViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
