@@ -7,6 +7,11 @@ This project was developed using Hexagonal Archtecture. A separated module was c
 - HexagonEdges: It defines the models and ports(interface) provided by HexagonArchtecture module. The app don't have a deep knowledge about the archtecture, and use this ports to comunicate the the module.
 - App: This is the application layer. The app layer works receiving users interactions and presenting data. All external communications access to files or networking are made by the HexagonArchtecture module. Actually the app is layer is all made in MVC, using Model as the only bridge to access HexagonArchtecture module. 
 
+## Tests
+There are 3 tests targets.
+- CurrencyExplorer: Tests the app
+- HexagonArchtectureTests: Tests the HexagonArchtecture module (mocking request)
+- HexagonArchtectureIntegratedTests: Tests the HexagonArchtecture module checking the returning results in the real endpoints.
 
 
 
